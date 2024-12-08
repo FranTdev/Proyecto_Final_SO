@@ -1,0 +1,2 @@
+ansible-playbook -i /vagrant/hosts /vagrant/nginx.yml
+ansible-playbook -i /vagrant/hosts /vagrant/prometheus_grafana.yml

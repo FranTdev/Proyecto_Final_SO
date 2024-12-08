@@ -1,0 +1,30 @@
+---
+- name: Ensure Python is installed
+  hosts: all
+  gather_facts: no 
+  become: yes
+  tasks:
+    - name: Install Python
+      raw: sudo apt update && sudo apt install -y python3
+    - name: Create symlink for Python
+      raw: sudo ln -sf /usr/bin/python3 /usr/bin/python
+
+
+- name: Instalar Nginx en Web
+  hosts: vm1
+  become: yes
+  tasks:
+    - name: Actualizar caché de apt
+      apt:
+        update_cache: yes
+
+    - name: Instalar Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Iniciar y habilitar Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
