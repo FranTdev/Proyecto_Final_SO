@@ -202,8 +202,7 @@ ansible-playbook -i /vagrant/hosts /vagrant/install_prometheus_grafana.yml
 ```
 ![WhatsApp Image 2024-12-07 at 21 12 23](https://github.com/user-attachments/assets/24e5940a-6f22-4d90-9b9b-5645e1af870f)
 
-##Confirmamos el funcionamiento de estos servicios ingresando las ip correspondiente en nuestro navegador.
-
+## Confirmamos el funcionamiento de estos servicios ingresando las ip correspondiente en nuestro navegador.
 
 ![WhatsApp Image 2024-12-07 at 21 12 23 (2)](https://github.com/user-attachments/assets/6bfecf45-f7ab-4848-ba6f-d85c8220b44f)
 
