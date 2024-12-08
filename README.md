@@ -97,9 +97,55 @@ sudo apt install ansible -y
 ![WhatsApp Image 2024-12-07 at 16 11 19](https://github.com/user-attachments/assets/b24b36e7-95ae-4a79-b691-3ce867d6f654)
 
 Procedemos a mover las claves privadas de las diferentes maquinas y cambiar sus permisos:
+```bash
+cp /vagrant/.vagrant/machines/vm1/virtualbox/private_key /home/vagrant/.ssh/private_key_web
+chmod 600 /home/vagrant/.ssh/private_key_web
+cp /vagrant/.vagrant/machines/vm2/virtualbox/private_key /home/vagrant/.ssh/private_key_monitoring
+chmod 600 /home/vagrant/.ssh/private_key_monitoring
+```
 ![WhatsApp Image 2024-12-07 at 16 48 50](https://github.com/user-attachments/assets/a46b2a2e-c38b-4b59-a837-2584b684cb13)
 
 ![WhatsApp Image 2024-12-07 at 16 49 30](https://github.com/user-attachments/assets/7ab15d4b-455d-4d6c-8c4e-37aa40c1db5a)
+
+Ahora creamos nuestro archivo inventory o host:
+![WhatsApp Image 2024-12-07 at 16 51 55](https://github.com/user-attachments/assets/e3762e10-0ef1-479c-be47-4fc74e284155)
+
+Ahora solo debemos crear y ejecutar los playbooks y nos ayudaremos de la herramienta de nano:
+Para NGINX cremos un archivo nginx.yml
+```yml
+[Uploading nginx.yml…]()---
+- name: Ensure Python is installed
+  hosts: all
+  gather_facts: no 
+  become: yes
+  tasks:
+    - name: Install Python
+      raw: sudo apt update && sudo apt install -y python3
+    - name: Create symlink for Python
+      raw: sudo ln -sf /usr/bin/python3 /usr/bin/python
+
+
+- name: Instalar Nginx en Web
+  hosts: vm1
+  become: yes
+  tasks:
+    - name: Actualizar caché de apt
+      apt:
+        update_cache: yes
+
+    - name: Instalar Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Iniciar y habilitar Nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+```
+
+
 
 
 
