@@ -77,3 +77,25 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
+
+Ahora arrancamos las maquinas virtuales atraves del comando ```vagrant up```
+![WhatsApp Image 2024-12-07 at 15 55 35](https://github.com/user-attachments/assets/e3863f11-6e03-41bd-921d-8150c423f3f2)
+
+Podemos confirmar el estado de las maquinas haciendo uso de ```vagrant status```
+![WhatsApp Image 2024-12-07 at 16 04 58](https://github.com/user-attachments/assets/a767e385-4eb3-471d-8c3f-378e56d17740)
+
+Y nos conectamos a nuestra maquina ***web*** con el comando ```vagrant ssh web```
+![WhatsApp Image 2024-12-07 at 16 06 56](https://github.com/user-attachments/assets/e350d3fb-1ad7-430c-b01c-097586fc3bcb)
+
+Despues de realizar estos pasos llego el momento de actualizar nuestro instalador de paquetes apt y de instalar ansible en nuestra maquina:
+```bash
+sudo apt update
+sudo apt install ansible -y
+```
+![WhatsApp Image 2024-12-07 at 16 11 19](https://github.com/user-attachments/assets/b24b36e7-95ae-4a79-b691-3ce867d6f654)
+![WhatsApp Image 2024-12-07 at 16 10 41](https://github.com/user-attachments/assets/4528e63b-5f60-44f4-91b1-ff03e2c0fb37)
+
+
+
+
+
