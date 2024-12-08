@@ -110,7 +110,8 @@ chmod 600 /home/vagrant/.ssh/private_key_monitoring
 Ahora creamos nuestro archivo inventory o host:
 ![WhatsApp Image 2024-12-07 at 16 51 55](https://github.com/user-attachments/assets/e3762e10-0ef1-479c-be47-4fc74e284155)
 
-Ahora solo debemos crear y ejecutar los playbooks y nos ayudaremos de la herramienta de nano:
+Ahora solo debemos crear y ejecutar los playbooks y nos ayudaremos de la herramienta de nano:               
+
 Para NGINX cremos un archivo nginx.yml
 ```yml
 [Uploading nginx.yml…]()---
@@ -144,10 +145,61 @@ Para NGINX cremos un archivo nginx.yml
         state: started
         enabled: yes
 ```
+Para descargar e instalar prometeus y grafana hacemos uso del archivo que llamaremos ***prometeus_grafana.yml***
 
+```yml
+[Uploading prometeus_grafana.yml…]()---
+- name: Instalar Prometheus y Grafana en monitoring
+  hosts: monitoring
+  become: yes
+  tasks:
+    - name: Actualizar caché de apt
+      apt:
+        update_cache: yes
 
+    - name: Instalar Prometheus
+      apt:
+        name: prometheus
+        state: present
 
+    - name: Agregar la clave del repositorio de Grafana
+      apt_key:
+        url: "https://packages.grafana.com/gpg.key"
+        state: present
 
+    - name: Agregar el repositorio de Grafana
+      apt_repository:
+        repo: "deb https://packages.grafana.com/oss/deb stable main"
+        state: present
+        filename: grafana
+
+    - name: Actualizar caché después de agregar el repositorio de Grafana
+      apt:
+        update_cache: yes
+
+    - name: Instalar Grafana
+      apt:
+        name: grafana
+        state: present
+
+    - name: Iniciar y habilitar Prometheus
+      service:
+        name: prometheus
+        state: started
+        enabled: yes
+
+    - name: Iniciar y habilitar Grafana
+      service:
+        name: grafana-server
+        state: started
+        enabled: yes
+
+```
+Ejecutamos los comandos
+```bash
+ansible-playbook -i /vagrant/hosts /vagrant/install_nginx.yml
+ansible-playbook -i /vagrant/hosts /vagrant/install_prometheus_grafana.yml
+```
 
 
 
