@@ -92,8 +92,14 @@ Despues de realizar estos pasos llego el momento de actualizar nuestro instalado
 sudo apt update
 sudo apt install ansible -y
 ```
-![WhatsApp Image 2024-12-07 at 16 11 19](https://github.com/user-attachments/assets/b24b36e7-95ae-4a79-b691-3ce867d6f654)
 ![WhatsApp Image 2024-12-07 at 16 10 41](https://github.com/user-attachments/assets/4528e63b-5f60-44f4-91b1-ff03e2c0fb37)
+
+![WhatsApp Image 2024-12-07 at 16 11 19](https://github.com/user-attachments/assets/b24b36e7-95ae-4a79-b691-3ce867d6f654)
+
+Procedemos a mover las claves privadas de las diferentes maquinas y cambiar sus permisos:
+![WhatsApp Image 2024-12-07 at 16 48 50](https://github.com/user-attachments/assets/a46b2a2e-c38b-4b59-a837-2584b684cb13)
+
+![WhatsApp Image 2024-12-07 at 16 49 30](https://github.com/user-attachments/assets/7ab15d4b-455d-4d6c-8c4e-37aa40c1db5a)
 
 
 
