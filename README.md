@@ -1,5 +1,9 @@
 # Proyecto_Final_SO
 
+##Video
+video(https://drive.google.com/file/d/1WPJIOH6mMaG-L9YQVyRv2a0a-ERnrSDf/view?usp=drive_link)
+Entrar con el correo de la UAO
+
 ## Instalacion
 Primero debemos configurar nuestra clave SSH en el host, lo hacemos con el commando: ```ssh-keygen -t rsa -b 4096```
 ![WhatsApp Image 2024-12-07 at 15 46 47](https://github.com/user-attachments/assets/69ccc798-57b8-4c3e-9adc-37b42ad8c403)
