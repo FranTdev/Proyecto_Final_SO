@@ -1,6 +1,6 @@
 # Proyecto_Final_SO
 
-##Video
+## Video
 video(https://drive.google.com/file/d/1WPJIOH6mMaG-L9YQVyRv2a0a-ERnrSDf/view?usp=drive_link)
 Entrar con el correo de la UAO
 
